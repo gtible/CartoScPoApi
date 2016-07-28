@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="apiCarto">
+<head>
+  <meta charset="utf-8">
+  <title>Api Carto</title>
+  <link rel="stylesheet" type="text/css" href="./style/style.css">
+  <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+
+  <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css">
+
+  <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css" />
+
+ 
+ 
+</head>
+<body>
+  <!-- <div id="nav" ng-controller="navbar" navbar></div> -->
+  <!-- <a href="#menu-toggle" class="btn btn-default" id="menu-toggle" style="float:right;">Cacher le menu</a> -->
+  <div id="wrapper">
+
+  <!-- Sidebar -->
+  <div id="sidebar-wrapper">
+      <ul class="sidebar-nav">
+          <li class="sidebar-brand">
+              <a href="#/home" style="color:white;">
+                  API CartoScPo
+              </a>
+          </li>
+          <li>
+              <a href="#/center">Créer un centre</a>
+          </li>
+          <li>
+              <a href="#/centersList">Liste des centres</a>
+          </li>
+          <li>
+              <a href="#/export">Exporter les données</a>
+          </li>
+          <li>
+              <a href="#/export">Générer les index</a>
+          </li>
+      </ul>
+  </div>
+  <!-- /#sidebar-wrapper -->
+  <div id="view" ng-view></div>
+
+  <script type="text/javascript" src="bower_components/angular/angular.min.js"></script>
+  <script type="text/javascript" src="bower_components/angular-route/angular-route.min.js"></script>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.13.1/lodash.min.js"></script>
+  <script type="text/javascript" src="bower_components/jquery/dist/jquery.min.js"></script>
+  <script type="text/javascript" src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+  <script type="text/javascript" src="bower_components/angular-sanitize/angular-sanitize.min.js"></script>
+  <script type="text/javascript" src="bower_components/marked/lib/marked.js"></script>
+  <script type="text/javascript" src="bower_components/highlightjs/highlight.pack.js"></script>
+  <!-- <script type="text/javascript" src="bower_components/angular/angular.min.js"></script>
+  <script type="text/javascript" src="bower_components/angular/angular.min.js"></script> -->
+
+
+ <script src="app.js"></script>
+
+  <!-- <script src="controllers/navbar.controller.js"></script> -->
+  <script src="controllers/home.controller.js"></script>
+  <script src="controllers/centersList.controller.js"></script>
+  <script src="controllers/center.controller.js"></script>
+  <script src="directives/autoGrow.directive.js"></script>
+
+  <script src="api.service.js"></script>
+
+  <!-- <script src="lib/papaparse.min.js"></script> -->
+  <script>
+    $("#menu-toggle").click(function(e) {
+        e.preventDefault();
+        $("#wrapper").toggleClass("toggled");
+    });
+    </script>
+    <script type="text/javascript">
+      marked.setOptions({
+        renderer: new marked.Renderer(),
+        gfm: true,
+        tables: true,
+        breaks: false,
+        pedantic: false,
+        sanitize: false, // if false -> allow plain old HTML ;)
+        smartLists: true,
+        smartypants: false,
+        highlight: function (code, lang) {
+          if (lang) {
+            return hljs.highlight(lang, code).value;
+          } else {
+            return hljs.highlightAuto(code).value;
+          }
+        }
+      });
+    </script>
+
+  <!-- Analytics -->
+
+</body>
+</html>

@@ -1,0 +1,35 @@
+{
+  "name": "Api Carto",
+  "version": "0.0.1",
+  "homepage": "",
+  "authors": [
+    "Bibliothèque - SciencesPo",
+    "Medialab - SciencesPo"
+  ],
+  "license": "GNU GPL",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "1.4.x",
+    "angular-route": "1.2.x",
+    "angular-animate": "*",
+    "angular-sanitize": "*",
+    "angular-bootstrap": "~0.10.0",
+    "bootstrap": "~3.1.1",
+    "jquery": "1.12.4",
+    "jquery-ui": "~1.10.4",
+    "lodash": "4.13.1",
+    "papaparse": "^4.1.2",
+    "marked": "~0.3.x",
+    "highlightjs": "~8.4.0"
+  },
+  "resolutions": {
+    "angular": "1.4.x"
+  }
+}

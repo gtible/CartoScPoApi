@@ -1,0 +1,297 @@
+<div class="view-page">
+  <div top-menu class="row">
+  </div>
+  <div class="container-fluid">
+  	<div class="row">
+  		<div class="col-md-12" style="background:#C5EFF7;">
+  	 		<h1> Créer un centre</h1>
+  	 		<p>Remplissez bien tous les champs afin de créer correctement un centre.</p>
+  		</div>
+  	 	<br>
+  	 	<br>
+  	 	<br>
+  	 	<br>
+	  	<h1 class="titleProps">Description administrative</h1>
+  		<div class="col-md-4 form-group">
+	  	 	<h3> Intitulé</h3>
+	  	 	<input type="text"  class="form-control" data-ng-model="intitule" placeholder="intitulé"> 
+	  	 	<br>
+	  	 	<h3> Code unité</h3>
+	  	 	<input type="text"  class="form-control" data-ng-model="codeUnite" placeholder="code unité"> 
+	  	 	<br>
+	  	 	<h3> Acronyme</h3>
+	  	 	<input type="text"  class="form-control" data-ng-model="acronym" placeholder="acronyme"> 
+	  	 	<br>
+	  	 	<h3> Directeur</h3>
+	  	 	<input type="text"  class="form-control" data-ng-model="directeur" placeholder="directeur"> 
+	  	 	<h3> Année de création</h3>
+	  	 	<input type="text"  class="form-control" data-ng-model="creation" placeholder="Année de création"> 
+	  	 	<br>
+	  	</div>
+
+	  	<div class="col-md-4 form-group">
+	  	 	<h3> Site web</h3>
+	  	 	<input type="text"  class="form-control" data-ng-model="siteWeb" placeholder="site web"> 
+	  	 	<br>
+	  	 	<h3> Courriel Direction</h3>
+	  	 	<input type="text"  class="form-control" data-ng-model="directeur_mail" placeholder="Courriel Direction"> 
+	  	 	<br>
+	  	 	<h3> Téléphone</h3>
+	  	 	<input type="text"  class="form-control" data-ng-model="phone" placeholder="Téléphone"> 
+	  	 	<br>
+	  	 	<h3> Lien vers la page personnel sur le site Web du centre</h3>
+	  	 	<input type="text"  class="form-control" data-ng-model="staff_url" placeholder="Lien vers la page personnel sur le site Web du centre"> 
+	  	 	<br>
+	  	 	<h3>Etablissements de rattachement</h3>
+	  	 	<div ng-repeat="etablissement in etablissementsRattachements">
+	  	 		<input type="text"  class="form-control" placeholder="Etablissement de rattachement" ng-model="etablissement.etablissement">
+		    </div>
+	  	 	<button class="btn" ng-click="addEtablissement()">Ajouter un établissement de rattachement</button>
+	  	</div>
+
+	  	<div class="col-md-4 form-group">
+	  	 	<h3> Effectif total</h3>
+	  	 	<input type="text"  class="form-control" data-ng-model="staff_number" placeholder="Effectif total"> 
+	  	 	<br>
+	  	 	<h3> Personnels permanents</h3>
+	  	 	<input type="text"  class="form-control" data-ng-model="permanent" placeholder="Personnels permanents"> 
+	  	 	<br>
+	  	 	<h3> Personnels non permanents</h3>
+	  	 	<input type="text"  class="form-control" data-ng-model="non_permanent" placeholder="Personnels non permanents"> 
+	  	 	<br>
+	  	 	<h3> Lien vers la page personnel du site Web du CNRS</h3>
+	  	 	<input type="text"  class="form-control" data-ng-model="staff_url_cnrs" placeholder="Lien vers la page personnel du site Web du CNRS"> 
+	  	 	<br>
+	  	 	<h3> Adresses </h3>
+	  	 	<div ng-repeat="adress in adresses">
+	  	 		<input type="text"  class="form-control" placeholder="Adresse ..." ng-model="adress.adress">
+		        <input type="text"  class="form-control" placeholder="Ville ..." ng-model="adress.city">
+		        <input type="text"  class="form-control" placeholder="Latitude ..." ng-model="adress.lat">
+		        <input type="text"  class="form-control" placeholder="Longitude ..." ng-model="adress.lng">
+		        <br>
+		        <hr>	
+		      </div>
+	  	 	<button class="btn" ng-click="addAdress()">Ajouter une adresse de centre</button>
+	  	 	<br>
+	  	</div>
+	  </div>
+	  	<h3> Historique </h3>
+	  	<div class="row">
+		    <div class="col-md-6">
+		    Markdown
+		      <textarea class="form-control" id="inputText" ng-model="historyInputText" auto-grow></textarea>
+		    </div>
+		    <div class="col-md-6">
+		    Rendu markdown
+		      <div id="outputText" ng-bind-html="historyOutputText" style="border: solid 1px black; min-height:50px;"></div>
+		    </div>
+		</div>
+	  	 <!-- 	<input type="text"  class="form-control" data-ng-model="history" placeholder="Historique"> 
+	  	 	<br> -->
+	  <div class="row">
+	  	<h1 class="titleProps">Ecole doctorale</h1>
+	  	<div class="col-md-6 form-group">
+	  	 	<h3> Liste écoles doctorales</h3>
+	  	 	<div ng-repeat="ecole in ecoles">
+	  	 		<input type="text"  class="form-control" placeholder="Intitulé ..." ng-model="ecole.intitule">
+		        <input type="text"  class="form-control" placeholder="Numéro ..." ng-model="ecole.numero">
+		        <input type="text"  class="form-control" placeholder="Directeur ..." ng-model="ecole.directeur">
+		        <input type="text"  class="form-control" placeholder="Courriel ..." ng-model="ecole.courriel">
+		        <br>
+		        <hr>
+		      </div>
+	  	 	<button class="btn" ng-click="addEcole()">Ajouter une ecole doctorale au centre</button>
+	  	 	<br>
+
+
+	  	 </div>
+	  	 <div class="col-md-6 form-group">
+	  	 	<h3> Nombre de doctorants</h3>
+	  	 	<input type="text"  class="form-control" data-ng-model="phd_number" placeholder="Nombre de doctorants"> 
+	  	 	<br>
+	  	 	<h3> Nombre de doctorants en science politique</h3>
+	  	 	<input type="text"  class="form-control" data-ng-model="phd_scpo_number" placeholder="Nombre de doctorants en science politique"> 
+	  	 	<br>
+	  	 	<h3> Nombre de thèses soutenues en 2015</h3>
+	  	 	<input type="text"  class="form-control" data-ng-model="thesis_number" placeholder="Nombre de thèses soutenues en 2015"> 
+	  	 </div>
+	</div>
+	<div class="row">
+	  	<h1 class="titleProps">Thématiques de recherche</h1>
+	  	<div class="col-md-6 form-group">
+	  	 	<h3>Science Politique discipline principale ou secondaire</h3>
+	  	 	<input type="text"  class="form-control" data-ng-model="political_science_topic_major_or_political_science_topic_minor" placeholder="Science Politique comme discipline principale / Science Politique comme discipline secondaire"> 
+	  	 	<br>
+
+	  	 	<h3>Sections CNRS</h3>
+	  	 	<div ng-repeat="section in sectionsCnrs">
+	  	 		<input type="text"  class="form-control" placeholder="section CNRS" ng-model="section.section">
+		    </div>
+	  	 	<button class="btn" ng-click="addSectionCnrs()">Ajouter une section CNRS</button>
+	  	 	<br>
+
+	  	 	<h3>Discipline principale</h3>
+	  	 	<input type="text"  class="form-control" data-ng-model="topic_major" placeholder="Discipline principale"> 
+	  	 	<br>
+
+	  	 	<h3>Disciplines secondaires</h3>
+	  	 	<div ng-repeat="discipline in disciplinesSecondaires">
+	  	 		<input type="text"  class="form-control" placeholder="discipline secondaire" ng-model="discipline.discipline">
+		    </div>
+	  	 	<button class="btn" ng-click="addDisciplinesSecondaires()">Ajouter une discipline secondaire</button>
+	  	</div>
+	  	<div class="col-md-6 form-group">
+	  	 	<h3>Contrats de recherche</h3>
+	  	 	<input type="text"  class="form-control" data-ng-model="contracts" placeholder="Contrats de recherche">
+	  	 	<br>
+
+	  	 	<h3>Evaluations</h3>
+	  	 	<input type="text"  class="form-control" data-ng-model="evaluation" placeholder="Evaluations"> 
+
+	  	 	<h3>Collaborations / réseaux</h3>
+	  	 	<div ng-repeat="partner in partners">
+	  	 		<input type="text"  class="form-control" placeholder="collaboration - réseaux" ng-model="partner.partner">
+		    </div>
+	  	 	<button class="btn" ng-click="addPartner()">Ajouter un collaborateur</button>
+	  	 	<br>
+
+	  	 	<h3>Mots-clés sujet</h3>
+	  	 	<div ng-repeat="keyWord in keyWords">
+	  	 		<input type="text"  class="form-control" placeholder="Mots-clés sujet" ng-model="keyWord.keyWord">
+		    </div>
+	  	 	<button class="btn" ng-click="addKeyWord()">Ajouter un mot-clé</button>
+	  	 	<br>
+	  	</div>
+	</div>
+	  	<h3>Séminaires de recherche</h3>
+	  	<div class="row">
+		    <div class="col-md-6">
+		    Markdown
+		      <textarea class="form-control" id="inputText" ng-model="workshopsInputText" auto-grow></textarea>
+		    </div>
+		    <div class="col-md-6">
+		    Rendu markdown
+		      <div id="outputText" ng-bind-html="workshopsOutputText" style="border: solid 1px black; min-height:50px;"></div>
+		    </div>
+		</div>
+	<h3>Axes de recherche</h3>
+	  	<div class="row">
+		    <div class="col-md-6">
+		    Markdown
+		      <textarea class="form-control" id="inputText" ng-model="axesInputText" auto-grow></textarea>
+		    </div>
+		    <div class="col-md-6">
+		    Rendu markdown
+		      <div id="outputText" ng-bind-html="axesOutputText" style="border: solid 1px black; min-height:50px;"></div>
+		    </div>
+		</div>
+	<div class="row">
+	  	<h1 class="titleProps">Publications</h1>
+	  	<div class="col-md-6 form-group">
+	  	 	<h3>Collections auprès d'éditeurs</h3>
+	  	 	<input type="text"  class="form-control" data-ng-model="collections" placeholder="Collections auprès d'éditeurs"> 
+	  	 	<br>
+	  	 	<h3>Collections auprès d'éditeurs : description</h3>
+	  	 	<input type="text"  class="form-control" data-ng-model="collection_title" placeholder="Collections auprès d'éditeurs : description"> 
+	  	 	<br>
+	  	 	<h3>Revue en propre</h3>
+	  	 	<input type="text"  class="form-control" data-ng-model="journal" placeholder="Revue en propre"> 
+	  	 	<br>
+	  	 	<h3>Archivage des données de la recherche : description des projets</h3>
+	  	 	<input type="text"  class="form-control" data-ng-model="data_projects" placeholder="Archivage des données de la recherche : description des projets"> 
+	  	</div>
+	  	<div class="col-md-6 form-group">
+	  	 	<h3>Publications versées dans HAL</h3>
+	  	 	<input type="text"  class="form-control" data-ng-model="hal" placeholder="Publications versées dans HAL"> 
+	  	 	<br>
+	  	 	<h3>Publications versées dans un dépôt institutionnel</h3>
+	  	 	<input type="text"  class="form-control" data-ng-model="repository" placeholder="Publications versées dans un dépôt institutionnel"> 
+	  	 	<br>
+	  	 	<h3>Préconisations pour le dépôt en open access des publications</h3>
+	  	 	<input type="text"  class="form-control" data-ng-model="oa_policy" placeholder="Préconisations pour le dépôt en open access des publications"> 
+	  	 	<br>
+	  	 	<h3>Archivage des données de la recherche</h3>
+	  	 	<input type="text"  class="form-control" data-ng-model="data_repository" placeholder="Archivage des données de la recherche"> 
+	  	 	<br>
+	  	 	
+	  	</div>
+	  	<h3>Description des revues</h3>
+	  	<div class="row">
+		    <div class="col-md-6">
+		    Markdown
+		      <textarea class="form-control" id="inputText" ng-model="journalTitleInputText" auto-grow></textarea>
+		    </div>
+		    <div class="col-md-6">
+		    Rendu markdown
+		      <div id="outputText" ng-bind-html="journalTitleOutputText" style="border: solid 1px black; min-height:50px;"></div>
+		    </div>
+		</div>
+		<h3>Autres activités éditoriales</h3>
+	  	<div class="row">
+		    <div class="col-md-6">
+		    Markdown
+		      <textarea class="form-control" id="inputText" ng-model="editionOtherInputText" auto-grow></textarea>
+		    </div>
+		    <div class="col-md-6">
+		    Rendu markdown
+		      <div id="outputText" ng-bind-html="editionOtherOutputText" style="border: solid 1px black; min-height:50px;"></div>
+		    </div>
+		</div>
+	</div>
+	<div class="row">
+	  	<h1 class="titleProps">Ressources documentaires</h1>
+	  	<div class="col-md-6 form-group">
+	  	 	<h3>Bibliothèques utilisées</h3>
+	  	 	<input type="text"  class="form-control" data-ng-model="libraries_network" placeholder="Bibliothèques utilisées"> 
+	  	 	<br>
+	  	 	<h3>Centre de documentation ou bibliothèque en propre</h3>
+	  	 	<input type="text"  class="form-control" data-ng-model="library" placeholder="Centre de documentation ou bibliothèque en propre"> 
+	  	 	<br>
+	  	 	<h3>Centre de documentation ou bibliothèque en propre : Intitulé</h3>
+	  	 	<input type="text"  class="form-control" data-ng-model="library_name" placeholder="Centre de documentation ou bibliothèque en propre : Intitulé"> 
+	  	 	<br>
+	  	 	<h3>Centre de documentation ou bibliothèque en propre : description</h3>
+	  	 	<input type="text"  class="form-control" data-ng-model="library_description" placeholder="Centre de documentation ou bibliothèque en propre : description"> 
+	  	 	<br>
+	  	 	<h3>Personne ressource (documentaliste, ingénieur d'études documentaires...)</h3>
+	  	 	<div ng-repeat="staff in libraryStaff">
+	  	 		<input type="text"  class="form-control" placeholder="Personne ressource" ng-model="staff.staff">
+		    </div>
+	  	 	<button class="btn" ng-click="addLibraryStaff()">Ajouter une personne ressource</button>
+	  	 	<br>
+	  	 	<h3>Site de la bibliothèque ou centre de documentation</h3>
+	  	 	<input type="text"  class="form-control" data-ng-model="library_web" placeholder="Site de la bibliothèque ou centre de documentation"> 
+  		</div>
+  		<div class="col-md-6 form-group">
+	  	 	<h3>Politique documentaire</h3>
+	  	 	<input type="text"  class="form-control" data-ng-model="library_policy" placeholder="Politique documentaire"> 
+	  	 	<br>
+	  	 	<h3>Niches documentaires</h3>
+	  	 	<div ng-repeat="holding in specialHoldings">
+	  	 		<input type="text"  class="form-control" placeholder="Niches documentaires" ng-model="holding.holding">
+		    </div>
+	  	 	<button class="btn" ng-click="addSpecialHoldings()">Ajouter une niche documentaire</button>
+	  	 	<br>
+	  	 	<h3>Ressources numériques à disposition des chercheurs</h3>
+	  	 	<div ng-repeat="eressource in eresources">
+	  	 		<input type="text"  class="form-control" placeholder="ressource documentaire" ng-model="eressource.eressource">
+		    </div>
+	  	 	<button class="btn" ng-click="addEresources()">Ajouter une ressource documentaire</button>
+	  	 	<br>
+	  	 	<h3>Offre de formations documentaires</h3>
+	  	 	<div ng-repeat="skill in informationSkillsTraining">
+	  	 		<input type="text"  class="form-control" placeholder="Offre de formations documentaires" ng-model="skill.skill">
+		    </div>
+	  	 	<button class="btn" ng-click="addInformationSkillsTraining()">Ajouter une offre de formations documentaires</button> 
+	  	 	<br>
+	  	 	<h3>Collaborations documentaires (Couperin, ISORE...)</h3>
+	  	 	<div ng-repeat="library in libraryNetwork">
+	  	 		<input type="text"  class="form-control" placeholder="Collaborations documentaires" ng-model="library.library">
+		    </div>
+	  	 	<button class="btn" ng-click="addLibraryNetwork()">Ajouter une Collaboration documentaire</button>
+  		</div>
+    </div>
+	  	 	<button class="btn btn-success" ng-click="create()">Créer le centre</button>
+
+	  	 	<button class="btn btn-success" ng-click="closeCenter()">Revenir à la liste des centres</button>
+</div>
